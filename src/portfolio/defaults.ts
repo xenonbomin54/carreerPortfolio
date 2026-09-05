@@ -17,7 +17,11 @@ export const defaultPortfolio: Portfolio = {
     { id: uid(), label: '거주지', value: '서울 동대문구' },
     { id: uid(), label: '이메일', value: 'xenonbomin54@gmail.com' },
     { id: uid(), label: 'GitHub', value: 'github.com/xenonbomin54' },
-    { id: uid(), label: '한 줄', value: 'Lorem ipsum dolor sit amet.' },
+    {
+      id: uid(),
+      label: '한 줄',
+      value: '막히면 우회로를 찾습니다. 서버가 자꾸 잠들길래 깨우는 서버를 하나 더 띄웠습니다.',
+    },
   ],
   interests: [
     {
@@ -43,30 +47,33 @@ export const defaultPortfolio: Portfolio = {
     {
       id: uid(),
       kind: '직업',
-      title: 'Lorem ipsum dolor',
-      org: 'Sit amet consectetur',
-      reason: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.',
+      title: '앱 개발자',
+      org: '모바일',
+      reason:
+        '웹으로 만든 걸 손에 들고 쓰게 만들고 싶습니다. 지금은 React Native로 옮겨 보는 중입니다.',
     },
     {
       id: uid(),
       kind: '직업',
-      title: 'Adipiscing elit sed',
-      org: 'Do eiusmod tempor',
-      reason: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.',
+      title: '서비스 개발자',
+      org: '웹 서비스',
+      reason:
+        '혼자 쓰는 도구보다 여러 명이 같이 쓰는 걸 만들 때 더 재밌었습니다. 링크 하나로 일정을 모으는 TimeHub, 글이 쌓이는 SQUARE처럼 사람이 붙는 쪽을 만들고 싶습니다.',
     },
     {
       id: uid(),
       kind: '학과',
-      title: 'Incididunt ut labore',
-      org: 'Et dolore magna',
-      reason: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.',
+      title: '컴퓨터공학과',
+      org: '1지망',
+      reason:
+        '만들다 막히는 지점이 대부분 기초에서 왔습니다. 자료구조와 운영체제를 정식으로 배우고 싶습니다.',
     },
     {
       id: uid(),
       kind: '학과',
-      title: 'Aliqua ut enim',
-      org: 'Ad minim veniam',
-      reason: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.',
+      title: '전자공학과',
+      org: '2지망',
+      reason: '소프트웨어만 보다 보니 그 아래에서 실제로 무슨 일이 일어나는지 궁금해졌습니다.',
     },
   ],
   courses: [
@@ -98,19 +105,11 @@ export const defaultPortfolio: Portfolio = {
   clubs: [
     {
       id: uid(),
-      term: 'Lorem ipsum',
-      name: 'Dolor sit amet',
-      role: 'Consectetur adipiscing',
-      summary:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    },
-    {
-      id: uid(),
-      term: 'Dolor sit',
-      name: 'Eiusmod tempor',
-      role: 'Incididunt ut labore',
-      summary:
-        'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+      term: '2026 – 현재',
+      name: '웹앱개발동아리 TAPIE',
+      role: '프론트엔드',
+      // 무엇을 만들고 있는지 아직 못 들었다. 들으면 채운다.
+      summary: '',
     },
   ],
   langs: [
