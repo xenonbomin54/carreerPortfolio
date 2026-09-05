@@ -1,0 +1,4 @@
+# 편집 경로는 검색엔진에 올리지 않는다.
+# robots.txt 로 막으면 그 파일 자체가 경로를 공개해 버리므로 헤더로 처리한다.
+/upload
+  X-Robots-Tag: noindex, nofollow

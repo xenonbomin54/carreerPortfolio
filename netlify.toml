@@ -1,0 +1,15 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  # vite 8 / typescript 6 을 쓰므로 최신 LTS 로 고정한다.
+  NODE_VERSION = "22"
+
+# SPA 폴백.
+# 라우팅을 pathname 으로 직접 하기 때문에 /upload 로 바로 들어와도
+# index.html 이 떠야 한다. 이 규칙이 없으면 /upload 는 404 가 된다.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
