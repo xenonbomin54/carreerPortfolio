@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# 환경변수 (Supabase 키 등)
+.env
+.env.*
+!.env.example
+
+# oh-my-claudecode 작업 상태
+.omc/
