@@ -24,7 +24,7 @@ export default function Competence() {
         </div>
       )}
 
-      <h3 className="sub">동아리 활동</h3>
+      <h3 className="sub">동아리 · 대외활동</h3>
       {data.clubs.length === 0 ? (
         <p className="empty">아직 등록된 항목이 없습니다.</p>
       ) : (

@@ -26,21 +26,21 @@ export const defaultPortfolio: Portfolio = {
   interests: [
     {
       id: uid(),
-      title: 'Lorem ipsum dolor sit amet',
-      body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-      tags: 'Lorem, Ipsum, Dolor',
+      title: '여러 명이 같이 쓰는 서비스',
+      body: '만들어 놓고 보니 TimeHub도 SQUARE도 DEBATE!도 전부 여러 명이 붙어야 돌아가는 것이었습니다. 우연 반 의도 반이었는데, 혼자 쓰는 도구보다 사람이 모이는 쪽을 만들 때 더 재밌었습니다.',
+      tags: '웹 서비스, 멀티유저',
     },
     {
       id: uid(),
-      title: 'Consectetur adipiscing elit',
-      body: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.',
-      tags: 'Sit, Amet',
+      title: 'LLM 붙여 보기',
+      body: '디스코드 봇 NowChat에 NVIDIA NIM API를 연결하면서 처음 다뤄 봤습니다. 사용자마다 대화를 따로 기억하게 만드는 부분이 특히 재밌었고, 앞으로도 계속 써 볼 생각입니다.',
+      tags: 'LLM, API 연동',
     },
     {
       id: uid(),
-      title: 'Sed do eiusmod tempor',
-      body: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore veritatis.',
-      tags: 'Consectetur, Adipiscing, Elit',
+      title: '모르면 찾아서 굴리기',
+      body: 'memoUSB를 배포할 때는 Render를 몰라서 무료 도메인을 검색해 붙였습니다. 나중에 NowChat을 Render에 올리면서는 무료 플랜이 잠든다는 걸 알게 돼, 깨워 두는 서버를 하나 더 띄웠습니다. 방법을 몰라도 일단 굴러가게는 만들어 놓는 편입니다.',
+      tags: '배포, 문제 해결',
     },
   ],
   aims: [
@@ -71,35 +71,34 @@ export const defaultPortfolio: Portfolio = {
     {
       id: uid(),
       kind: '학과',
-      title: '전자공학과',
+      title: '소프트웨어학과',
       org: '2지망',
-      reason: '소프트웨어만 보다 보니 그 아래에서 실제로 무슨 일이 일어나는지 궁금해졌습니다.',
+      reason:
+        '고등학교에서 하던 걸 이어서 더 깊이 하고 싶습니다. 만들어 본 경험이 쌓여 있는 쪽이라 붙는 속도도 빠를 것 같습니다.',
     },
   ],
   courses: [
     {
       id: uid(),
-      term: 'Lorem ipsum',
-      subject: 'Dolor',
-      title: 'Sit amet consectetur adipiscing',
+      term: '2026',
+      subject: '수강',
+      title: '전공 과목',
       summary:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris.',
+        '1학기 — 프로그래밍, 컴퓨터구조, 정보통신. 2학기 — 웹프로그래밍, 자료구조, 컴퓨터시스템일반.',
     },
     {
       id: uid(),
-      term: 'Dolor sit',
-      subject: 'Amet',
-      title: 'Eiusmod tempor incididunt',
-      summary:
-        'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure.',
+      term: '2026 1학기',
+      subject: '프로그래밍',
+      title: '미래 기술 상상해 발표하기',
+      summary: '앞으로 나올 법한 기술을 정해 논리적으로 이야기를 만들고 발표했습니다.',
     },
     {
       id: uid(),
-      term: 'Consectetur',
-      subject: 'Elit',
-      title: 'Labore et dolore magna',
-      summary:
-        'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+      term: '2026 1학기',
+      subject: '프로그래밍',
+      title: '문제 추상화와 컴퓨팅 사고력',
+      summary: '주어진 문제를 추상화해 컴퓨팅 사고력으로 풀어내는 과정을 다뤘습니다.',
     },
   ],
   clubs: [
@@ -108,7 +107,15 @@ export const defaultPortfolio: Portfolio = {
       term: '2026 – 현재',
       name: '웹앱개발동아리 TAPIE',
       role: '프론트엔드',
-      // 무엇을 만들고 있는지 아직 못 들었다. 들으면 채운다.
+      summary:
+        '프론트엔드 파트에 여러 명이 함께 있고, 디자인은 파트가 따로 나뉘어 있습니다. 백엔드는 별도 파트를 두지 않습니다.',
+    },
+    {
+      id: uid(),
+      term: '2026',
+      name: '소프트웨어 나눔축제',
+      role: '수업자',
+      // 무엇을 누구에게 가르쳤는지 아직 못 들었다.
       summary: '',
     },
   ],
