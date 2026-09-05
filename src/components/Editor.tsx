@@ -1,6 +1,15 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { usePortfolio } from '../portfolio/usePortfolio';
+import type { SyncState } from '../portfolio/context';
 import type { ListKey, Portfolio } from '../portfolio/types';
+
+const SYNC_TEXT: Record<SyncState, string> = {
+  off: '이 브라우저에만 저장됩니다 (Supabase 미설정)',
+  loading: '불러오는 중…',
+  saving: '저장 중…',
+  idle: '저장됨',
+  error: '저장 실패 — 콘솔을 확인하세요',
+};
 
 type Spec = {
   key: string;
@@ -160,25 +169,12 @@ function Field({
   );
 }
 
-export default function Editor({ onClose }: { onClose: () => void }) {
-  const { data, setMeta, addItem, updateItem, removeItem, moveItem, replaceAll, reset } =
+export default function Editor() {
+  const { data, sync, setMeta, addItem, updateItem, removeItem, moveItem, replaceAll, reset } =
     usePortfolio();
   const [tabKey, setTabKey] = useState<Tab['key']>('profile');
   const fileRef = useRef<HTMLInputElement>(null);
   const tab = TABS.find((t) => t.key === tabKey)!;
-
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-    };
-    document.addEventListener('keydown', onKey);
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.removeEventListener('keydown', onKey);
-      document.body.style.overflow = prev;
-    };
-  }, [onClose]);
 
   const download = () => {
     const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
@@ -204,17 +200,19 @@ export default function Editor({ onClose }: { onClose: () => void }) {
 
   return (
     <>
-      <div className="scrim" onClick={onClose} />
-      <aside className="drawer" role="dialog" aria-modal="true" aria-label="내용 편집">
-        <div className="drawer__head">
-          <div>
-            <h2>내용 편집</h2>
-            <p>이 브라우저에만 저장됩니다</p>
-          </div>
-          <button className="drawer__close" onClick={onClose}>
-            닫기
-          </button>
+      <header className="topbar">
+        <div className="topbar__inner">
+          <span className="topbar__name">내용 편집</span>
+          <nav className="topbar__nav">
+            <a className="topbar__link" href="/">
+              포트폴리오 보기
+            </a>
+          </nav>
         </div>
+      </header>
+
+      <div className="wrap editor">
+        <p className={`editor__sync${sync === 'error' ? ' is-bad' : ''}`}>{SYNC_TEXT[sync]}</p>
 
         <div className="tabs">
           {TABS.map((t) => (
@@ -228,8 +226,8 @@ export default function Editor({ onClose }: { onClose: () => void }) {
           ))}
         </div>
 
-        <div className="drawer__body">
-          {tab.hint && <p className="drawer__hint">{tab.hint}</p>}
+        <div className="editor__body">
+          {tab.hint && <p className="editor__hint">{tab.hint}</p>}
 
           {tabKey === 'meta' ? (
             <div className="card">
@@ -292,7 +290,7 @@ export default function Editor({ onClose }: { onClose: () => void }) {
           )}
         </div>
 
-        <div className="drawer__foot">
+        <div className="editor__foot">
           <button className="icon-btn" onClick={download}>
             내보내기
           </button>
@@ -307,7 +305,6 @@ export default function Editor({ onClose }: { onClose: () => void }) {
           >
             초기화
           </button>
-          <em>자동 저장됨</em>
           <input
             ref={fileRef}
             type="file"
@@ -320,7 +317,7 @@ export default function Editor({ onClose }: { onClose: () => void }) {
             }}
           />
         </div>
-      </aside>
+      </div>
     </>
   );
 }

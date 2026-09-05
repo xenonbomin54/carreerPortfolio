@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import Header from './components/header';
 import Home from './components/Home';
 import Profile from './components/Profile';
@@ -9,21 +8,13 @@ import Footer from './components/Footer';
 import Editor from './components/Editor';
 import { PortfolioProvider } from './portfolio/store';
 
+/** 공개되지 않은 편집 경로 */
+const UPLOAD_PATH = '/upload';
+
+const isUploadRoute = () =>
+  window.location.pathname.replace(/\/+$/, '').toLowerCase() === UPLOAD_PATH;
+
 function Site() {
-  const [editing, setEditing] = useState(false);
-
-  // 숨은 진입 경로 ①: Ctrl/⌘ + Shift + E
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.shiftKey && e.key.toLowerCase() === 'e') {
-        e.preventDefault();
-        setEditing((v) => !v);
-      }
-    };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, []);
-
   return (
     <>
       <Header />
@@ -33,19 +24,16 @@ function Site() {
         <Career />
         <Competence />
         <Projects />
-        {/* 숨은 진입 경로 ②: 푸터 끝의 마침표 세 번 */}
-        <Footer onSecret={() => setEditing(true)} />
+        <Footer />
       </main>
-
-      {editing && <Editor onClose={() => setEditing(false)} />}
     </>
   );
 }
 
 export default function App() {
+  const upload = isUploadRoute();
+
   return (
-    <PortfolioProvider>
-      <Site />
-    </PortfolioProvider>
+    <PortfolioProvider writable={upload}>{upload ? <Editor /> : <Site />}</PortfolioProvider>
   );
 }

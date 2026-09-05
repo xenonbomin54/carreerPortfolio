@@ -1,8 +1,12 @@
 import { createContext } from 'react';
 import type { ListKey, Portfolio } from './types';
 
+/** off = Supabase 미설정(로컬만) */
+export type SyncState = 'off' | 'loading' | 'saving' | 'idle' | 'error';
+
 export type PortfolioCtx = {
   data: Portfolio;
+  sync: SyncState;
   setMeta: (patch: Partial<Portfolio['meta']>) => void;
   addItem: (key: ListKey) => void;
   updateItem: (key: ListKey, id: string, field: string, value: string) => void;
