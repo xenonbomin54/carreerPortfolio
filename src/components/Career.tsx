@@ -7,6 +7,20 @@ const splitTags = (raw: string) =>
     .map((t) => t.trim())
     .filter(Boolean);
 
+const careerImages = [
+  '/images/career/1.jpg',
+  '/images/career/2.jpg',
+  '/images/career/3.jpg',
+  '/images/career/4.jpg',
+  '/images/career/5.jpg',
+  '/images/career/6.jpg',
+  '/images/career/7.jpg',
+  '/images/career/8.jpg',
+  '/images/career/9.jpg',
+  '/images/career/10.jpg',
+  '/images/career/11.jpg',
+];
+
 export default function Career() {
   const { data } = usePortfolio();
 
@@ -17,10 +31,20 @@ export default function Career() {
         <p className="empty">아직 등록된 항목이 없습니다.</p>
       ) : (
         <div className="entries">
-          {data.interests.map((it) => (
+          {data.interests.map((it, index) => (
             <article className="entry" key={it.id}>
+              {careerImages[index] && (
+                <img
+                  className="entry__image"
+                  src={careerImages[index]}
+                  alt={`${it.title} 활동 사진`}
+                />
+              )}
+
               <h4 className="entry__title">{it.title}</h4>
+
               <p className="entry__body">{it.body}</p>
+
               {splitTags(it.tags).length > 0 && (
                 <p className="tags">
                   {splitTags(it.tags).map((t) => (
