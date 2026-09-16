@@ -7,18 +7,18 @@ const splitTags = (raw: string) =>
     .map((t) => t.trim())
     .filter(Boolean);
 
-const careerImages = [
-  '/images/career/1.jpg',
-  '/images/career/2.jpg',
-  '/images/career/3.jpg',
-  '/images/career/4.jpg',
-  '/images/career/5.jpg',
-  '/images/career/6.jpg',
-  '/images/career/7.jpg',
-  '/images/career/8.jpg',
-  '/images/career/9.jpg',
-  '/images/career/10.jpg',
-  '/images/career/11.jpg',
+const careerImages: string[] = [
+  new URL('../assets/1.jpeg', import.meta.url).href,
+  new URL('../assets/2.jpeg', import.meta.url).href,
+  new URL('../assets/3.jpeg', import.meta.url).href,
+  new URL('../assets/4.jpeg', import.meta.url).href,
+  new URL('../assets/5.jpeg', import.meta.url).href,
+  new URL('../assets/6.jpeg', import.meta.url).href,
+  new URL('../assets/7.jpeg', import.meta.url).href,
+  new URL('../assets/8.jpeg', import.meta.url).href,
+  new URL('../assets/9.jpeg', import.meta.url).href,
+  new URL('../assets/10.jpeg', import.meta.url).href,
+  new URL('../assets/11.jpeg', import.meta.url).href,
 ];
 
 export default function Career() {
@@ -50,10 +50,11 @@ export default function Career() {
       <h3 className="sub">활동 사진</h3>
       <div className="career-gallery">
         {careerImages.map((image, index) => (
-          <div className="career-gallery__item" key={image}>
-            <img
-              src={image}
-              alt={`진로 활동 사진 ${index + 1}`}
+          // 리액트 경고 방지를 위해 key 값을 index로 설정했습니다.
+          <div className="career-gallery__item" key={index}>
+            <img 
+              src={image} 
+              alt={`진로 활동 사진 ${index + 1}`} 
             />
           </div>
         ))}
