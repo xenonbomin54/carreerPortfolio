@@ -53,6 +53,11 @@ export default function Career() {
           // 리액트 경고 방지를 위해 key 값을 index로 설정했습니다.
           <div className="career-gallery__item" key={index}>
             <img 
+              width={300}
+              height={200} 
+              className="career-gallery__image" 
+              loading="lazy" 
+              decoding="async"
               src={image} 
               alt={`진로 활동 사진 ${index + 1}`} 
             />
